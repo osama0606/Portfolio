@@ -10,7 +10,6 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import logo from '../assets/Osama-Khan-Logo.png';
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -36,10 +35,10 @@ const Navbar = () => {
         <Link href="#hero" _hover={{ textDecoration: 'none' }}>
           <Flex align="center" gap={3}>
             <Image
-              src={logo}
+              src="/Osama-Khan-Logo.png" // ✅ Direct path from public folder
               alt="Osama Logo"
               boxSize="48px"
-              borderRadius="full" // Circular logo
+              borderRadius="full"
               border="2px solid teal"
             />
             <Text

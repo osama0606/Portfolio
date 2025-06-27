@@ -16,14 +16,14 @@ const projectList = [
   {
     title: 'Lenskart Clone',
     desc: 'A responsive frontend clone of Lenskart.com built with React and Chakra UI, showcasing product listings, navigation, and UI design.',
-    image: 'src/assets/lenskart-clone.png',
+    image: '/lenskart-clone.png', // ✅ updated path from public folder
     demo: 'https://lenskart-clone-theta.vercel.app/',
     code: 'https://github.com/masai-course/osama_khan__cap05_235/tree/master/FEDC-2504/lenskart-clone',
   },
   {
     title: 'Admin Panel',
     desc: 'A full-stack MERN Admin Panel project with authentication, product management, and image uploads, built using React, Node.js, Express, MongoDB, and Chakra UI.',
-    image: 'src/assets/admin-panel.png',
+    image: '/admin-panel.png', // ✅ updated path from public folder
     demo: 'https://admin-panel-liart-xi.vercel.app/',
     code: 'https://github.com/masai-course/osama_khan__cap05_235/tree/master/Backend-Development/Mern-Project',
   }
