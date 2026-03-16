@@ -91,7 +91,7 @@ const Hero = () => {
             bg={buttonBg}
             color={buttonText}
             as="a"
-            href="/Osama-Resume.pdf"
+            href="/Osama Khan Resume.pdf"
             download
             _hover={{
               bg: buttonHover,
