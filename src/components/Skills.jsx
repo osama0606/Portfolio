@@ -1,4 +1,13 @@
-import { Box, Heading, SimpleGrid, Icon, Text, VStack, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  Icon,
+  Text,
+  VStack,
+  useColorModeValue,
+} from '@chakra-ui/react';
+
 import {
   SiHtml5,
   SiCss3,
@@ -22,20 +31,68 @@ const skills = [
 ];
 
 const Skills = () => {
-  const bg = useColorModeValue('white', 'gray.800');
-  const textColor = useColorModeValue('gray.700', 'gray.200');
+
+  const bg = useColorModeValue('purple.50', 'black');
+  const cardBg = useColorModeValue('white', 'gray.900');
+
+  const textColor = useColorModeValue('gray.700', 'gray.300');
+  const borderColor = useColorModeValue('purple.100', 'gold');
+
+  const titleColor = useColorModeValue('purple.500', 'gold');
+  const iconColor = useColorModeValue('purple.500', 'gold');
 
   return (
     <Box id="skills" py={20} px={6} bg={bg}>
-      <Heading textAlign="center" mb={10} color="teal.400">Skills</Heading>
-      <SimpleGrid columns={[2, 3, 4]} spacing={10} maxW="800px" mx="auto">
+      
+      <Heading
+        textAlign="center"
+        mb={12}
+        color={titleColor}
+        fontSize={{ base: '2xl', md: '3xl' }}
+      >
+        My Skills
+      </Heading>
+
+      <SimpleGrid
+        columns={{ base: 2, md: 3, lg: 4 }}
+        spacing={8}
+        maxW="900px"
+        mx="auto"
+      >
         {skills.map((skill, i) => (
-          <VStack key={i}>
-            <Icon as={skill.icon} boxSize={12} color="teal.500" />
-            <Text fontWeight="medium" color={textColor}>{skill.name}</Text>
+          <VStack
+            key={i}
+            bg={cardBg}
+            p={6}
+            borderRadius="lg"
+            border="1px solid"
+            borderColor={borderColor}
+            spacing={4}
+            transition="0.3s"
+            _hover={{
+              transform: 'translateY(-6px)',
+              boxShadow: 'lg',
+            }}
+          >
+
+            <Icon
+              as={skill.icon}
+              boxSize={10}
+              color={iconColor}
+            />
+
+            <Text
+              fontWeight="medium"
+              color={textColor}
+              fontSize="sm"
+            >
+              {skill.name}
+            </Text>
+
           </VStack>
         ))}
       </SimpleGrid>
+
     </Box>
   );
 };

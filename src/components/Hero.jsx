@@ -1,54 +1,109 @@
-import { Box, Heading, Text, Button, Stack, Icon, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Button,
+  Stack,
+  Icon,
+  Image,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { FaDownload } from 'react-icons/fa';
 
 const Hero = () => {
-  const bgGradient = useColorModeValue(
-    'linear(to-br, teal.400, teal.600)',
-    'linear(to-br, teal.600, teal.800)'
-  );
-  const textColor = useColorModeValue('white', 'whiteAlpha.900');
+
+  const bg = useColorModeValue('purple.50', 'black');
+
+  const headingColor = useColorModeValue('gray.800', 'white');
+  const textColor = useColorModeValue('gray.600', 'gray.300');
+
+  const imageBorder = useColorModeValue('purple.500', 'gold');
+
+  const buttonBg = useColorModeValue('purple.600', 'gold');
+  const buttonHover = useColorModeValue('purple.700', 'yellow.400');
+  const buttonText = useColorModeValue('white', 'black');
 
   return (
     <Box
       id="hero"
       textAlign="center"
-      py={{ base: 20, md: 32 }}
+      py={{ base: 24, md: 36 }}
       px={6}
-      bgGradient={bgGradient}
-      color={textColor}
+      bg={bg}
     >
-      <Stack spacing={6}>
-        <Heading size="2xl">Hi, I'm Osama Khan 👋</Heading>
-        <Text fontSize="xl" maxW="600px" mx="auto">
-          I’m a MERN Stack Developer focused on building responsive, scalable, and user-friendly web applications.
-          I specialize in React, Node.js, Express, and MongoDB — turning ideas into functional products.
+      <Stack spacing={8} align="center">
+
+        {/* Profile Image */}
+        <Image
+          src="/profile.png"
+          alt="Osama Khan"
+          boxSize={{ base: "140px", md: "180px" }}
+          borderRadius="full"
+          objectFit="cover"
+          border="4px solid"
+          borderColor={imageBorder}
+          boxShadow="lg"
+        />
+
+        <Heading
+          fontSize={{ base: '3xl', md: '5xl' }}
+          fontWeight="bold"
+          color={headingColor}
+        >
+          Hi, I'm Osama Khan 👋
+        </Heading>
+
+        <Text
+          fontSize={{ base: 'md', md: 'lg' }}
+          maxW="650px"
+          color={textColor}
+        >
+          I’m a MERN Stack Developer focused on building responsive,
+          scalable, and user-friendly web applications.
+          I specialize in React, Node.js, Express, and MongoDB —
+          turning ideas into functional digital products.
         </Text>
 
-        <Stack direction={{ base: 'column', sm: 'row' }} spacing={4} justify="center">
+        <Stack
+          direction={{ base: 'column', sm: 'row' }}
+          spacing={5}
+          pt={4}
+        >
+
           <Button
             as="a"
             href="#projects"
-            bg="white"
-            color="teal.600"
-            _hover={{ bg: 'gray.100' }}
-            size="md"
+            size="lg"
+            bg={buttonBg}
+            color={buttonText}
+            _hover={{
+              bg: buttonHover,
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg'
+            }}
           >
             View Projects
           </Button>
 
           <Button
-            leftIcon={<Icon as={FaDownload} color="teal.600" boxSize={4} />}
-            bg="white"
-            color="teal.600"
-            _hover={{ bg: 'gray.100' }}
-            size="md"
+            leftIcon={<Icon as={FaDownload} />}
+            size="lg"
+            bg={buttonBg}
+            color={buttonText}
             as="a"
             href="/Osama-Resume.pdf"
             download
+            _hover={{
+              bg: buttonHover,
+              transform: 'translateY(-2px)',
+              boxShadow: 'lg'
+            }}
           >
             Download Resume
           </Button>
+
         </Stack>
+
       </Stack>
     </Box>
   );
